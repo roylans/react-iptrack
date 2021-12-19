@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import style from '../css/main.module.scss'
 
+import fetchData from '../services/fetchData'
+
 export default function SearchForm (props) {
   const [query, setQuery ] = useState({ value: ''})
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
-
-  // useEffect(() => {
-  //   console.log('UseEfect sin dependencias')
-  // }, [])
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -18,24 +16,18 @@ export default function SearchForm (props) {
       return
     }
 
+    let response = []
     setLoading(true)
-    let response = null
     try {
-      response = await fetch(`https://geo.ipify.org/api/v2/country?apiKey=at_NTVsG6OnhirJ96KWFQdoQvxf5ExHB&ipAddress=${query.value}`)
+      response = await fetchData(query)
     } catch (e) {
       console.log(e)
-      setLoading(false)
       return
+    } finally {
+      setLoading(false)
     }
 
-    setLoading(false)
-    if (!response.ok) {
-      const message = `Ha ocurrido un error: ${response.status}`
-      throw new Error(message)
-    }
-
-    const data = await response.json()
-    props.handleSearch(data)
+    props.handleSearch(response)
   }
 
   function handleChange(e) {

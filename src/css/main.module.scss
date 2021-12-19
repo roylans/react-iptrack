@@ -9,8 +9,17 @@
   height: 30vh;
 }
 
+.app__ipinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -40px;
+}
+
 .app__map {
   height: 70vh;
+  border: solid 1px #000
 }
 
 .header {
@@ -64,4 +73,38 @@
   font-size: 0.9em;
   font-weight: bold;
   color: #F3950D;
+}
+
+/* Info Ip*/
+.ipinfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 80%;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.ipinfo__col {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0px 15px;  
+}
+
+.ipinfo__label {
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: rgb(122, 117, 117);
+}
+
+.ipinfo__data {
+  font-size: 1.2rem;
+  font-size: bold;
+}
+
+/* Map */
+.map {
+  background-color: red;
 }
