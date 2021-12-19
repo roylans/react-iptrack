@@ -1,0 +1,67 @@
+.app {
+  display: flex; 
+  flex-direction: column;
+}
+
+.app__header {
+  display: flex;
+  background: url('../assets/images/pattern-bg.png');
+  height: 30vh;
+}
+
+.app__map {
+  height: 70vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.header__title {
+  color: white;
+}
+
+/* Form Search*/
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2px;
+}
+
+.form__input {
+  padding: 10px;
+  border-radius: 5px 0px 0px 5px;
+  border: none;
+  flex-grow: 3;
+}
+
+.form__input:focus { 
+  outline: none;
+}
+
+.form__btn {
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  width: 40px;
+  cursor: pointer;
+  background-image: url('../assets/images/icon-arrow.svg');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.form__error {
+  font-size: 0.9em;
+  color: #F3950D;
+}
+
+.form__loading {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #F3950D;
+}

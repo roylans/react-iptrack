@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+
+import style from './css/main.module.scss'
+
+import Header from './components/Header'
+import Map from './components/Map'
 
 function App() {
+  const [dataIP, setDataIP] = useState()
+  
+  const handleSearch = (response) => {
+    
+    setDataIP(response)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={ style.app }>
+      <div className={ style.app__header}>
+        <Header handleSearch={handleSearch}/>
+      </div>
+      <div className={ style.app__map }>
+        <Map dataIp={dataIP}  />
+      </div>
     </div>
   );
 }
