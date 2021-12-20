@@ -21,9 +21,7 @@ function App() {
       </div>
       <div className={ style.app__map }>
         <div className={style.app__ipinfo}>
-          {dataIP &&
-            <IpInfo dataIp={dataIP}/>
-          }
+          <IpInfo dataIp={dataIP}/>
         </div>
         {/* <Map dataIp={dataIP}  /> */}
       </div>
