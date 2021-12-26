@@ -3,7 +3,7 @@ import style from '../css/main.module.scss'
 function Loading() {
     return (
         <div className={style.loading}>
-            Loading
+            Cargando
         </div>
     )
 }
