@@ -1,16 +1,15 @@
 import { useState } from 'react'
 
-import style from './css/main.module.scss'
-
 import Header from './components/Header'
-// import Map from './components/Map'
+import Map from './components/Map'
 import IpInfo from './components/IpInfo'
+
+import style from './css/main.module.scss'
 
 function App() {
   const [dataIP, setDataIP] = useState()
   
   const handleSearch = (response) => {
-    console.log(response)
     setDataIP(response)
   }
 
@@ -23,7 +22,7 @@ function App() {
         <div className={style.app__ipinfo}>
           <IpInfo dataIp={dataIP}/>
         </div>
-        {/* <Map dataIp={dataIP}  /> */}
+        <Map dataIp={dataIP}/>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import style from '../css/main.module.scss'
 
 export default function IpInfo (data) {
-  console.log(data.dataIp)
   return (
     <div className={ style.ipinfo } >
       <div className={ style.ipinfo__col }>
