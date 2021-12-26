@@ -6,7 +6,6 @@ import fetchData from '../services/fetchData'
 export default function SearchForm (props) {
   const [query, setQuery ] = useState({ value: ''})
   const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -17,14 +16,14 @@ export default function SearchForm (props) {
     }
 
     let response = []
-    setLoading(true)
+    props.handleLoading(true)
     try {
       response = await fetchData(query)
     } catch (e) {
       console.log(e)
       return
     } finally {
-      setLoading(false)
+      props.handleLoading(false)
     }
 
     props.handleSearch(response)
@@ -54,12 +53,6 @@ export default function SearchForm (props) {
       {error &&
         <span className={ style.form__error }>
           Este campo es requerido
-        </span>
-      }
-
-      {loading &&
-        <span className={ style.form__loading }>
-          Cargando...
         </span>
       }
     </div>
