@@ -5,13 +5,26 @@ import fetchData from '../services/fetchData'
 
 export default function SearchForm (props) {
   const [query, setQuery ] = useState({ value: ''})
-  const [error, setError] = useState(false)
+  const [error, setError] = useState({ error: false, message: '' })
+
+  function isValidIp(ip) {
+    const testReg4 = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+    const testReg6 = /^([\da-fA-F]{1,4}:){7}[\da-fA-F]{1,4}$/
+
+    return testReg4.test(ip) || testReg6.test(ip)
+
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     if (!query.value) {
-      setError(true)
+      setError({ error: true, message: 'Este campo es requerido'})
+      return
+    }
+
+    if (!isValidIp(query.value)) {
+      setError({ error: true, message: 'No es una dirección IP válida'})      
       return
     }
 
@@ -26,11 +39,12 @@ export default function SearchForm (props) {
       props.handleLoading(false)
     }
 
+    // Emit response
     props.handleSearch(response)
   }
 
   function handleChange(e) {
-    setError(false)
+    setError({ error: false, message: '' })
     setQuery({value: e.target.value})
   }
 
@@ -50,9 +64,9 @@ export default function SearchForm (props) {
         >
         </button>
       </div>
-      {error &&
+      {error.error &&
         <span className={ style.form__error }>
-          Este campo es requerido
+          { error.message }
         </span>
       }
     </div>
