@@ -54,7 +54,7 @@ export default function SearchForm (props) {
         <input
           autoComplete='off' 
           value={ query.value }
-          placeholder='IP Address'
+          placeholder='Dirección IP'
           className={ style.form__input } name="search"
           onChange={ handleChange }
         />
