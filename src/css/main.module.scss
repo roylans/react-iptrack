@@ -108,6 +108,16 @@
   font-size: bold;
 }
 
+.loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 3px 5px 3px 5px;
+  border-radius: 0px 0px 5px 5px;
+  background-color: #F4E185;
+  color: black;
+}
+
 @media (max-width: 600px) {
   .app__header {
     display: flex;
