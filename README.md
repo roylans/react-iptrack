@@ -2,17 +2,13 @@
 
 _Este proyecto es un rastreador de direcciones IP desarrollado con React_
 
-## Comenzando 🚀
-
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
-
 ## Demo
 
 https://react-iptrack.vercel.app/
 
 ## Instalación 🔧
 
-Sigue estas instrucciones para descargar y ejecutar una copia del proyecto en tu máquina local.
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
 ```
 git clone git@github.com:roylans/react-iptrack.git
