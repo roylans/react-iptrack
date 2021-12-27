@@ -2,7 +2,7 @@ export default async function fetchData (query) {
   let response = []
 
   try {
-    response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_NTVsG6OnhirJ96KWFQdoQvxf5ExHB&ipAddress=${query.value}`)
+    response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IP_API_KEY}&ipAddress=${query.value}`)
   } catch (e) {
     return e
   }
